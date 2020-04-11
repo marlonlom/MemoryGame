@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MemoryGame</string>
+    <string name="lobby_label_5_x_2">Very Easy 5 x 2</string>
+    <string name="lobby_label_3_x_4">Easy 3 x 4</string>
+    <string name="lobby_label_4_x_4">Normal 4 x 4</string>
+    <string name="lobby_label_4_x_5">Hard 4 x 5</string>
+    <string name="lobby_label_memory_game">Memory game</string>
+</resources>
