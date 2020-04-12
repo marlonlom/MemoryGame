@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.example.memorygame.LobbyViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -21,7 +24,7 @@
             android:src="@drawable/lobby_background"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="88dp"
-            tools:visibility="gone" />
+           />
 
         <TextView
             android:id="@+id/lobby_title"
@@ -30,10 +33,10 @@
             android:layout_marginTop="16dp"
             android:background="@color/colorWhite"
             android:fontFamily="@font/addis"
-            android:textStyle="bold"
             android:padding="5dp"
             android:text="@string/lobby_label_memory_game"
             android:textSize="24sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -44,6 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_marginTop="52dp"
+            android:onClick="@{() -> viewModel.onVeryEasyClicked()}"
             android:text="@string/lobby_label_5_x_2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
@@ -56,6 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
+            android:onClick="@{()->viewModel.onEasyClicked()}"
             android:text="@string/lobby_label_3_x_4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -64,9 +69,10 @@
         <Button
             android:id="@+id/_lobby_4_4_btn"
             style="@style/Lobby.Button"
-            android:layout_marginTop="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:onClick="@{()->viewModel.onNormalClicked()}"
             android:text="@string/lobby_label_4_x_4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
@@ -76,9 +82,10 @@
         <Button
             android:id="@+id/_lobby_4_5_btn"
             style="@style/Lobby.Button"
-            android:layout_marginTop="4dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:onClick="@{() -> viewModel.onHardClicked()}"
             android:text="@string/lobby_label_4_x_5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"

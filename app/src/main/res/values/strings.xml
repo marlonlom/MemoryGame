@@ -5,4 +5,6 @@
     <string name="lobby_label_4_x_4">Normal 4 x 4</string>
     <string name="lobby_label_4_x_5">Hard 4 x 5</string>
     <string name="lobby_label_memory_game">Memory game</string>
+    <string name="board_content_desc_back_button">back button</string>
+    <string name="board_score_placeholder">Score: 4 pairs of 10</string>
 </resources>
