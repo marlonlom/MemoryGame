@@ -7,6 +7,7 @@ class BoardViewModelFactory(
     private val difficulty: BoardDifficulty,
     private var boardUseCase: BoardUseCase
 ) : ViewModelProvider.Factory {
+
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(BoardViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")

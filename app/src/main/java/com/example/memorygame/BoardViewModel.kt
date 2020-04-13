@@ -1,17 +1,22 @@
 package com.example.memorygame
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class BoardViewModel(
     private val difficulty: BoardDifficulty,
-    private var boardUseCase: BoardUseCase
+    private val boardUseCase: BoardUseCase
 ) : ViewModel() {
+    private val maxScore = (difficulty.columns * difficulty.rows) / 2
+    fun getMaxScore() = maxScore
 
-    fun getGameCards() {
-        boardUseCase.getCardsToPlay( getCardByDifficulty(difficulty))
-    }
+    private val _score = MutableLiveData(0)
+    val score: LiveData<Int>
+          get() = _score
 
-    private fun getCardByDifficulty(difficulty: BoardDifficulty): Int {
-        return boardUseCase.countBoardCards(difficulty)
+    fun getCardsToPlay() : List<Card> {
+        val numberOfCharacters = maxScore
+         return boardUseCase.getCardsToPlay(numberOfCharacters)
     }
 }

@@ -6,14 +6,17 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <ImageView
-        android:layout_width="60dp"
-        android:layout_height="90dp"
+        android:id="@+id/item_board_card"
+        android:layout_width="50dp"
+        android:layout_height="70dp"
         android:padding="6dp"
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
+        android:layout_margin="4dp"
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/ic_card_cover" />
+        tools:src="@drawable/ic_card_cover"
+        android:contentDescription="@string/card_item_card_content_desc" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
