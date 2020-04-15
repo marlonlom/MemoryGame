@@ -13,6 +13,8 @@ import com.example.memorygame.Character.SPIDER
 
 interface BoardUseCase {
     fun getCardsToPlay(numberOfCharacters: Int): List<Card>
+    fun verifyMatch(firstCard: Card?, secondCard: Card?): Boolean
+    fun areYouWinner(score: Int, difficulty: BoardDifficulty): Boolean
 }
 
 class BoardUseCaseImp : BoardUseCase {
@@ -40,4 +42,15 @@ class BoardUseCaseImp : BoardUseCase {
         cardList.addAll(characters.shuffled())
         return cardList
     }
+
+    override fun verifyMatch(firstCard: Card?, secondCard: Card?): Boolean =
+        firstCard != null && secondCard != null && (firstCard?.character == secondCard?.character)
+
+    override fun areYouWinner(score: Int, difficulty: BoardDifficulty): Boolean {
+        val maxScore = getMaxScore(difficulty)
+        return score == maxScore
+    }
+
+    private fun getMaxScore(difficulty: BoardDifficulty) =
+        (difficulty.columns * difficulty.rows) / 2
 }

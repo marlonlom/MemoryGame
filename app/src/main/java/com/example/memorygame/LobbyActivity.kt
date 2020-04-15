@@ -2,6 +2,7 @@ package com.example.memorygame
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -33,4 +34,6 @@ class LobbyActivity : AppCompatActivity() {
                 .putExtra(EXTRA_DIFICULTY, difficulty)
         )
     }
+
+    fun back(view: View) {}
 }

@@ -2,14 +2,14 @@ package com.example.memorygame
 
 import com.example.memorygame.State.CLOSE
 
-data class Card(val character: Character, val state: State = CLOSE)
+data class Card(val character: Character, var state: State = CLOSE)
 
 enum class Character(val resource: Int) {
-    BAT(R.drawable.ic_card_cover),
+    BAT(R.drawable.ic_card_bat),
     CAT(R.drawable.ic_card_cat),
-    COW(R.drawable.ic_card_cow),
-    DOG(R.drawable.ic_card_gosh_dog),
     DRAGON(R.drawable.ic_card_dragon),
+    DOG(R.drawable.ic_card_gosh_dog),
+    COW(R.drawable.ic_card_cow),
     HEN(R.drawable.ic_card_hen),
     HORSE(R.drawable.ic_card_horse),
     MAN(R.drawable.ic_card_garbage_man),
