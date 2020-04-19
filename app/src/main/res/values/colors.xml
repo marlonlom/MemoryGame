@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright 2020 aliceresponde. All rights reserved.
+  ~
+  ~  Licensed under the Apache License, Version 2.0 (the "License");
+  ~  you may not use this file except in compliance with the License.
+  ~  You may obtain a copy of the License at
+  ~
+  ~       http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~  Unless required by applicable law or agreed to in writing, software
+  ~  distributed under the License is distributed on an "AS IS" BASIS,
+  ~  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~  See the License for the specific language governing permissions and
+  ~  limitations under the License.
+  ~
+  -->
+
 <resources>
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#166E9E</color>
@@ -6,4 +23,20 @@
 
     <color name="colorBlueLobby">@android:color/holo_blue_dark</color>
     <color name="colorWhite">@android:color/white</color>
+
+    <!-- brand colors -->
+    <color name="brand_navy_blue">#FF0277BD</color>
+    <color name="brand_cornflower_blue">#FF58A5F0</color>
+    <color name="brand_smalt">#FF004C8C</color>
+    <color name="brand_pine_green">#FF00796B</color>
+    <color name="brand_puerto_rico">#FF48A999</color>
+    <color name="brand_sherpa_blue">#FF004C40</color>
+    <color name="brand_white">#FFFFFFFF</color>
+    <color name="brand_white_65">#65FFFFFF</color>
+    <color name="brand_empress">#FF757575</color>
+    <color name="brand_black">#FF121212</color>
+    <color name="brand_carmine">#FFB00020</color>
+    <color name="brand_cocoa_brown">#FF2E201B</color>
+
+    <color name="color_lobby_lighter_overlay">@color/brand_white_65</color>
 </resources>

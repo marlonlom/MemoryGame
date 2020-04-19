@@ -1,11 +1,43 @@
+<!--
+  ~ Copyright 2020 aliceresponde. All rights reserved.
+  ~
+  ~  Licensed under the Apache License, Version 2.0 (the "License");
+  ~  you may not use this file except in compliance with the License.
+  ~  You may obtain a copy of the License at
+  ~
+  ~       http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~  Unless required by applicable law or agreed to in writing, software
+  ~  distributed under the License is distributed on an "AS IS" BASIS,
+  ~  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~  See the License for the specific language governing permissions and
+  ~  limitations under the License.
+  ~
+  -->
+
 <resources>
     <string name="app_name">MemoryGame</string>
     <string name="lobby_label_5_x_2">Very Easy 5 x 2</string>
     <string name="lobby_label_3_x_4">Easy 3 x 4</string>
     <string name="lobby_label_4_x_4">Normal 4 x 4</string>
     <string name="lobby_label_4_x_5">Hard 4 x 5</string>
-    <string name="lobby_label_memory_game">Memory game</string>
+    <string name="text_lobby_title">Memory game</string>
     <string name="board_content_desc_back_button">back button</string>
     <string name="board_score_label">Score: %1$d pairs of %2$d</string>
     <string name="card_item_card_content_desc">Card</string>
+    <!-- game title -->
+    <string name="text_game_title">Animals Memory Game</string>
+    <!-- lobby screen -->
+    <string name="text_lobby_new_game">Start new game</string>
+    <!-- difficulty selection bottom sheet -->
+    <string name="text_difficulty_selection_title">Select difficulty</string>
+    <string name="text_button_difficulty_very_easy">Very Easy</string>
+    <string name="text_button_difficulty_easy">Easy</string>
+    <string name="text_button_difficulty_normal">Normal</string>
+    <string name="text_button_difficulty_hard">Hard</string>
+    <!-- board screen -->
+    <string name="text_board_label_level">Level:</string>
+    <string name="text_board_label_level_value">VERY HARD</string>
+    <string name="text_board_label_score">Score: %1$d</string>
+    <string name="text_board_label_fails">"Fails: %1$d / %2$d"</string>
 </resources>
