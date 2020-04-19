@@ -24,6 +24,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.memorygame.R
@@ -74,10 +75,12 @@ class BoardScreenFragment : Fragment() {
         Timber.w("Current state of the game: ${gameState.gameResult}")
         when (gameState.gameResult) {
             SUCCESS -> {
-                Timber.w("Current state of the game: ${gameState.gameResult}")
+                Timber.w("Game finished as SUCCESS. going to game success screen.")
+                findNavController().navigate(BoardScreenFragmentDirections.actionDestBoardToGameSuccessScreenFragment())
             }
             FAILED -> {
-                Timber.w("Game finished as FAILED. going to ")
+                Timber.w("Game finished as FAILED. going to game lost screen.")
+                findNavController().navigate(BoardScreenFragmentDirections.actionDestBoardToGameFailedScreenFragment())
             }
             else -> {
                 checkCurrentStats(gameState)

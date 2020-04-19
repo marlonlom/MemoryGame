@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright 2020 aliceresponde. All rights reserved.
   ~
   ~  Licensed under the Apache License, Version 2.0 (the "License");
@@ -26,15 +25,34 @@
         android:id="@+id/dest_lobby"
         android:name="com.example.memorygame.lobby.LobbyScreenFragment"
         android:label="BoardScreenFragment"
-        tools:layout="@layout/fragment_lobby">
-        <action
-            android:id="@+id/action_dest_lobby_to_dest_board"
-            app:destination="@id/dest_board" />
-    </fragment>
+        tools:layout="@layout/fragment_lobby" />
 
     <fragment
         android:id="@+id/dest_board"
         android:name="com.example.memorygame.board.BoardScreenFragment"
         android:label="BoardScreenFragment"
-        tools:layout="@layout/fragment_board" />
+        tools:layout="@layout/fragment_board">
+        <action
+            android:id="@+id/action_dest_board_to_gameSuccessScreenFragment"
+            app:destination="@id/dest_game_won" />
+        <action
+            android:id="@+id/action_dest_board_to_gameFailedScreenFragment"
+            app:destination="@id/dest_game_lost" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/dest_game_won"
+        android:name="com.example.memorygame.results.GameSuccessScreenFragment"
+        android:label="GameSuccessScreenFragment"
+        tools:layout="@layout/fragment_game_success" />
+    <fragment
+        android:id="@+id/dest_game_lost"
+        android:name="com.example.memorygame.results.GameFailedScreenFragment"
+        android:label="GameFailedScreenFragment"
+        tools:layout="@layout/fragment_game_failed" />
+
+    <action
+        android:id="@+id/action_global_dest_board"
+        app:destination="@id/dest_board" />
+
 </navigation>

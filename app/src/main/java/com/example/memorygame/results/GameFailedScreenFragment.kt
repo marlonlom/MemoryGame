@@ -4,18 +4,18 @@
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
  *  You may obtain a copy of the License at
- *  
+ *
  *       http://www.apache.org/licenses/LICENSE-2.0
- *  
+ *
  *  Unless required by applicable law or agreed to in writing, software
  *  distributed under the License is distributed on an "AS IS" BASIS,
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
- *  
+ *
  */
 
-package com.example.memorygame.lobby
+package com.example.memorygame.results
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -27,23 +27,20 @@ import androidx.navigation.navGraphViewModels
 import com.example.memorygame.R
 import com.example.memorygame.core.GameAttributes
 import com.example.memorygame.core.GameStateContract
-import com.example.memorygame.databinding.FragmentLobbyBinding
+import com.example.memorygame.databinding.FragmentGameFailedBinding
 import com.example.memorygame.databinding.LayoutBottomDifficultySelectionBinding
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
-class LobbyScreenFragment : Fragment() {
-
-    private var _viewBinding: FragmentLobbyBinding? = null
+class GameFailedScreenFragment : Fragment() {
+    private var _viewBinding: FragmentGameFailedBinding? = null
     private val viewBinding get() = _viewBinding!!
-
     private val viewModel by navGraphViewModels<GameStateContract.ViewModel>(R.id.nav_graph_game)
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _viewBinding = FragmentLobbyBinding.inflate(inflater, container, false)
+        _viewBinding = FragmentGameFailedBinding.inflate(inflater, container, false)
         return viewBinding.root
     }
 
@@ -54,7 +51,7 @@ class LobbyScreenFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewBinding.buttonNewGame.setOnClickListener {
+        viewBinding.buttonRetry.setOnClickListener {
             BottomSheetDialog(
                 requireContext(),
                 R.style.BottomSheetDialogTheme
@@ -84,7 +81,8 @@ class LobbyScreenFragment : Fragment() {
         difficultyLevel: GameAttributes.DifficultyLevel
     ) {
         viewModel.createNewGame(difficultyLevel)
-        findNavController().navigate(LobbyScreenFragmentDirections.actionGlobalDestBoard())
+        findNavController().navigate(GameFailedScreenFragmentDirections.actionGlobalDestBoard())
         dialog.dismiss()
     }
+
 }

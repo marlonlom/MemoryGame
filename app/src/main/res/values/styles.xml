@@ -37,11 +37,12 @@
     </style>
 
     <style name="Widget.MemoryGame.Lobby.Button" parent="Widget.AppCompat.Button">
-        <item name="android:minWidth">220dp</item>
-        <item name="android:layout_marginLeft">16dp</item>
-        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
         <item name="android:layout_marginBottom">64dp</item>
-        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textColor">@color/brand_white</item>
         <item name="android:background">@drawable/bg_button_lobby</item>
     </style>
 
@@ -90,6 +91,21 @@
         <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/brand_cocoa_brown</item>
+    </style>
+
+    <style name="Widget.MemoryGame.Button.Borderless.Success" parent="Widget.AppCompat.Button.Borderless.Colored">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:background">@drawable/bg_button_success</item>
+        <item name="android:textColor">@color/brand_white</item>
+    </style>
+
+    <style name="Widget.MemoryGame.Button.Borderless.Failed" parent="@style/Widget.MemoryGame.Button.Borderless.Success">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:background">@drawable/bg_button_retry</item>
     </style>
 
 </resources>

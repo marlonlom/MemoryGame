@@ -17,9 +17,6 @@
 
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
-    <solid android:color="@color/colorBlueLobby" />
-    <corners android:radius="20dp" />
-    <stroke
-        android:color="@color/colorPrimaryDark"
-        android:width="4dp" />
+    <corners android:radius="24dp" />
+    <solid android:color="@color/brand_bittersweet" />
 </shape>

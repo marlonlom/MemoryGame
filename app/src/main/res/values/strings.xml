@@ -17,18 +17,12 @@
 
 <resources>
     <string name="app_name">MemoryGame</string>
-    <string name="lobby_label_5_x_2">Very Easy 5 x 2</string>
-    <string name="lobby_label_3_x_4">Easy 3 x 4</string>
-    <string name="lobby_label_4_x_4">Normal 4 x 4</string>
-    <string name="lobby_label_4_x_5">Hard 4 x 5</string>
     <string name="text_lobby_title">Memory game</string>
-    <string name="board_content_desc_back_button">back button</string>
-    <string name="board_score_label">Score: %1$d pairs of %2$d</string>
     <string name="card_item_card_content_desc">Card</string>
     <!-- game title -->
     <string name="text_game_title">Animals Memory Game</string>
     <!-- lobby screen -->
-    <string name="text_lobby_new_game">Start new game</string>
+    <string name="text_lobby_new_game">New game</string>
     <!-- difficulty selection bottom sheet -->
     <string name="text_difficulty_selection_title">Select difficulty</string>
     <string name="text_button_difficulty_very_easy">Very Easy</string>
@@ -40,4 +34,11 @@
     <string name="text_board_label_level_value">VERY HARD</string>
     <string name="text_board_label_score">Score: %1$d</string>
     <string name="text_board_label_fails">"Fails: %1$d / %2$d"</string>
+    <!-- game success screen -->
+    <string name="text_game_success_title">You won</string>
+    <string name="text_game_success_description">You have paired all the animal cards.</string>
+    <!-- game failed screen -->
+    <string name="text_game_failed_title">You lost</string>
+    <string name="text_game_failed_description">You made mistakes while finding pairs of cards.</string>
+    <string name="text_button_retry">Retry</string>
 </resources>
