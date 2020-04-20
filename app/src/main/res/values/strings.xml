@@ -16,11 +16,9 @@
   -->
 
 <resources>
-    <string name="app_name">MemoryGame</string>
-    <string name="text_lobby_title">Memory game</string>
+    <string name="app_name" translatable="false">MemoryGame</string>
+    <string name="text_lobby_title" translatable="false">Memory game</string>
     <string name="card_item_card_content_desc">Card</string>
-    <!-- game title -->
-    <string name="text_game_title">Animals Memory Game</string>
     <!-- lobby screen -->
     <string name="text_lobby_new_game">New game</string>
     <!-- difficulty selection bottom sheet -->
@@ -31,7 +29,7 @@
     <string name="text_button_difficulty_hard">Hard</string>
     <!-- board screen -->
     <string name="text_board_label_level">Level:</string>
-    <string name="text_board_label_level_value">VERY HARD</string>
+    <string name="text_board_label_level_value">@string/text_button_difficulty_hard</string>
     <string name="text_board_label_score">Score: %1$d</string>
     <string name="text_board_label_fails">"Fails: %1$d / %2$d"</string>
     <!-- game success screen -->
