@@ -19,14 +19,18 @@ package com.example.memorygame.core
 
 import com.example.memorygame.core.GameAttributes.CardItems
 import com.example.memorygame.core.GameAttributes.CardItems.Companion
-import junit.framework.TestCase
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertNotSame
+import org.junit.Assert.assertSame
+import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 
 
 @RunWith(JUnit4::class)
-class CardItemsDataTest : TestCase() {
+class CardItemsDataTest {
 
     @Test
     fun testSuccessAnimalCardMatches() {

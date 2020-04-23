@@ -38,6 +38,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:lottie_autoPlay="true"
+            app:lottie_enableMergePathsForKitKatAndAbove="true"
             app:lottie_loop="false"
             app:lottie_rawRes="@raw/successful_game"
             tools:viewBindingIgnore="true" />
@@ -71,10 +72,18 @@
         <Button
             android:id="@+id/button_retry"
             style="@style/Widget.MemoryGame.Button.Borderless.Success"
-            android:text="@string/text_lobby_new_game"
+            android:text="@string/text_lobby_home"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_game_success_description" />
+
+        <Button
+            android:id="@+id/button_home"
+            style="@style/Widget.MemoryGame.Button.Borderless.Success"
+            android:text="@string/text_lobby_return"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_retry" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- guidelines -->

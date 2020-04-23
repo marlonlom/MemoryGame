@@ -37,9 +37,10 @@ interface GameStateContract {
         val failsCount get() = _failsCount
         val pairingCardId get() = _cardWaitingPair
         val cardsToFaceDown get() = _faceDownCardIds
+        val totalScore get() = cardsList.distinctBy { it.card.name }.sumBy { it.card.cardScore }
 
-        private val gameSuccess
-            get() = _score >= cardsList.map { it.card.cardScore }.distinct().sum()
+        private val gameSuccess: Boolean
+            get() = _score >= totalScore
 
         private val gameFailed
             get() = difficultyLevel.errorsLimit in 1.._failsCount

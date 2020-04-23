@@ -20,7 +20,8 @@
     <string name="text_lobby_title" translatable="false">Memory game</string>
     <string name="card_item_card_content_desc">Card</string>
     <!-- lobby screen -->
-    <string name="text_lobby_new_game">New game</string>
+    <string name="text_lobby_home">New game</string>
+    <string name="text_lobby_return">Back to lobby</string>
     <!-- difficulty selection bottom sheet -->
     <string name="text_difficulty_selection_title">Select difficulty</string>
     <string name="text_button_difficulty_very_easy">Very Easy</string>
@@ -39,4 +40,6 @@
     <string name="text_game_failed_title">You lost</string>
     <string name="text_game_failed_description">You made mistakes while finding pairs of cards.</string>
     <string name="text_button_retry">Retry</string>
+    <!-- texts for logging -->
+    <string name="text_warning_game_state" translatable="false">Current state of the game: %1$s, score: %2$d/%3$d</string>
 </resources>

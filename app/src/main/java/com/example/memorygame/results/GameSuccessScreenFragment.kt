@@ -46,6 +46,9 @@ class GameSuccessScreenFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewBinding.buttonHome.setOnClickListener {
+            findNavController().navigate(GameSuccessScreenFragmentDirections.actionGlobalDestLobby())
+        }
         viewBinding.buttonRetry.setOnClickListener {
             BottomSheetDialog(
                 requireContext(),

@@ -17,7 +17,6 @@
 
 package com.example.memorygame.board
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -28,6 +27,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.memorygame.R
+import com.example.memorygame.core.GameAttributes
 import com.example.memorygame.core.GameStateContract
 import com.example.memorygame.core.GameStateContract.GameResult.FAILED
 import com.example.memorygame.core.GameStateContract.GameResult.SUCCESS
@@ -54,8 +54,6 @@ class BoardScreenFragment : Fragment() {
         _viewBinding = null
     }
 
-
-    @SuppressLint("LogNotTimber")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupBoardTable()
@@ -72,28 +70,38 @@ class BoardScreenFragment : Fragment() {
     }
 
     private fun checkGameProgress(gameState: GameStateContract.StateItem) {
-        Timber.w("Current state of the game: ${gameState.gameResult}")
         when (gameState.gameResult) {
             SUCCESS -> {
-                Timber.w("Game finished as SUCCESS. going to game success screen.")
+                Timber.w("Game finished as SUCCESS (${gameState.score}/${gameState.totalScore}). going to game success screen.")
                 findNavController().navigate(BoardScreenFragmentDirections.actionDestBoardToGameSuccessScreenFragment())
             }
             FAILED -> {
-                Timber.w("Game finished as FAILED. going to game lost screen.")
+                Timber.w("Game finished as FAILED (${gameState.failsCount}/${gameState.difficultyLevel.errorsLimit}). going to game lost screen.")
                 findNavController().navigate(BoardScreenFragmentDirections.actionDestBoardToGameFailedScreenFragment())
             }
             else -> {
                 checkCurrentStats(gameState)
                 if (gameState.cardsToFaceDown.isNotBlank()) {
                     checkCardsToBeFaceDown(gameState)
+                } else {
+                    Timber.i(
+                        requireContext().getString(
+                            R.string.text_warning_game_state, gameState.gameResult,
+                            gameState.score, gameState.totalScore
+                        )
+                    )
                 }
             }
         }
     }
 
     private fun checkCurrentStats(gameState: GameStateContract.StateItem) {
-        viewBinding.textBoardLabelLevelValue.text =
-            gameState.difficultyLevel.name.replace("_", " ").trim()
+        viewBinding.textBoardLabelLevelValue.text = when (gameState.difficultyLevel) {
+            GameAttributes.DifficultyLevel.VERY_EASY -> getString(R.string.text_button_difficulty_very_easy)
+            GameAttributes.DifficultyLevel.EASY -> getString(R.string.text_button_difficulty_easy)
+            GameAttributes.DifficultyLevel.NORMAL -> getString(R.string.text_button_difficulty_normal)
+            GameAttributes.DifficultyLevel.HARD -> getString(R.string.text_button_difficulty_hard)
+        }
         viewBinding.textBoardLabelScore.text =
             requireContext().getString(R.string.text_board_label_score, gameState.score)
         viewBinding.textBoardLabelFails.apply {
@@ -124,7 +132,7 @@ class BoardScreenFragment : Fragment() {
         viewBinding.recyclerBoardTable.apply {
             setHasFixedSize(true)
             layoutManager =
-                GridLayoutManager(requireContext(), 3, GridLayoutManager.VERTICAL, false)
+                GridLayoutManager(requireContext(), 2, GridLayoutManager.VERTICAL, false)
             adapter = BoardGridAdapter().apply {
                 setOnCardFlippedListener { cardUniqueId ->
                     handleCardFlipped(cardUniqueId)

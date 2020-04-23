@@ -23,10 +23,10 @@ import com.example.memorygame.R
 interface GameAttributes {
 
     enum class DifficultyLevel(val columnCount: Int, val rowCount: Int, val errorsLimit: Int) {
-        VERY_EASY(3, 2, -1),
-        EASY(3, 4, 3),
-        NORMAL(4, 6, 3),
-        HARD(4, 8, 1);
+        VERY_EASY(2, 2, -1),
+        EASY(4, 4, 10),
+        NORMAL(4, 6, 5),
+        HARD(4, 8, 3);
     }
 
     data class SingleCard(
@@ -81,10 +81,11 @@ interface GameAttributes {
                 cardItems.distinct().map { it.cardScore }.reduce { acc, score -> acc + score }
 
             @JvmStatic
-            fun randomDeck(rowCount: Int): List<CardItems> =
-                mutableListOf(values()).random().slice(IntRange(0, rowCount - 1))
-                    .duplicated()
-                    .shuffled()
+            fun randomDeck(rowCount: Int): List<CardItems> {
+                val limit = if (rowCount < 0) 0 else rowCount
+                return if (limit > 0) values().asList().shuffled().subList(0, limit).duplicated()
+                    .shuffled() else emptyList()
+            }
         }
 
     }

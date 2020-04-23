@@ -104,7 +104,7 @@
     </style>
 
     <style name="Widget.MemoryGame.Button.Borderless.Failed" parent="@style/Widget.MemoryGame.Button.Borderless.Success">
-        <item name="android:layout_width">100dp</item>
+        <item name="android:minWidth">100dp</item>
         <item name="android:background">@drawable/bg_button_retry</item>
     </style>
 

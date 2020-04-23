@@ -18,7 +18,8 @@
 <resources>
     <string name="card_item_card_content_desc">Carta</string>
     <!-- lobby screen -->
-    <string name="text_lobby_new_game">Nuevo juego</string>
+    <string name="text_lobby_home">Nuevo juego</string>
+    <string name="text_lobby_return">Volver al lobby</string>
     <!-- difficulty selection bottom sheet -->
     <string name="text_difficulty_selection_title">Elegir dificultad</string>
     <string name="text_button_difficulty_very_easy">Muy fácil</string>

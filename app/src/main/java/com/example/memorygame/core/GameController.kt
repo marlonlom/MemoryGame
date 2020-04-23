@@ -41,6 +41,9 @@ class GameController {
         secondCardId: String,
         pairingCardId: String
     ): Triple<List<SingleCard>, Int, Int> {
+        if (actualList.isNullOrEmpty()) {
+            return Triple(actualList, -1, -1)
+        }
         val pairingCard = actualList.find { it.uid == pairingCardId }
         val selectedCard = actualList.find { it.uid == secondCardId }
         Timber.d("checkPairingCards(${pairingCard!!.card.name},${selectedCard!!.card.name})")

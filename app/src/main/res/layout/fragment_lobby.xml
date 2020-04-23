@@ -45,7 +45,7 @@
     <Button
         android:id="@+id/button_new_game"
         style="@style/Widget.MemoryGame.Lobby.Button"
-        android:text="@string/text_lobby_new_game"
+        android:text="@string/text_lobby_home"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

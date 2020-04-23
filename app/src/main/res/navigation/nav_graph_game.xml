@@ -52,7 +52,12 @@
         tools:layout="@layout/fragment_game_failed" />
 
     <action
+        android:id="@+id/action_global_dest_lobby"
+        app:destination="@id/dest_lobby" />
+
+    <action
         android:id="@+id/action_global_dest_board"
-        app:destination="@id/dest_board" />
+        app:destination="@id/dest_board"
+        app:popUpTo="@id/dest_lobby" />
 
 </navigation>
