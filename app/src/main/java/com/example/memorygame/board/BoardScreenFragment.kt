@@ -21,6 +21,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RawRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -31,6 +32,7 @@ import com.example.memorygame.core.GameAttributes
 import com.example.memorygame.core.GameStateContract
 import com.example.memorygame.core.GameStateContract.GameResult.FAILED
 import com.example.memorygame.core.GameStateContract.GameResult.SUCCESS
+import com.example.memorygame.core.SingleAudioPlayer
 import com.example.memorygame.databinding.FragmentBoardBinding
 import timber.log.Timber
 
@@ -84,6 +86,11 @@ class BoardScreenFragment : Fragment() {
                 if (gameState.cardsToFaceDown.isNotBlank()) {
                     checkCardsToBeFaceDown(gameState)
                 } else {
+                    Timber.d("gameState.firstMove: ${gameState.firstMove}")
+                    Timber.d("gameState.cardsPaired: ${gameState.cardsPaired}")
+                    if (!gameState.firstMove) {
+                        playSound(if (gameState.cardsPaired) R.raw.game_match else R.raw.game_flip_card)
+                    }
                     Timber.i(
                         requireContext().getString(
                             R.string.text_warning_game_state, gameState.gameResult,
@@ -125,7 +132,11 @@ class BoardScreenFragment : Fragment() {
                 ) as BoardGridAdapter.ViewHolder).flipBack(foundCard!!)
             }, 400)
         }
+        playSound(R.raw.game_error)
+    }
 
+    private fun playSound(@RawRes soundResourceId: Int) {
+        SingleAudioPlayer().playSound(requireContext(), soundResourceId)
     }
 
     private fun setupBoardTable() {
@@ -134,9 +145,7 @@ class BoardScreenFragment : Fragment() {
             layoutManager =
                 GridLayoutManager(requireContext(), 2, GridLayoutManager.VERTICAL, false)
             adapter = BoardGridAdapter().apply {
-                setOnCardFlippedListener { cardUniqueId ->
-                    handleCardFlipped(cardUniqueId)
-                }
+                setOnCardFlippedListener { cardUniqueId -> handleCardFlipped(cardUniqueId) }
             }
         }
     }

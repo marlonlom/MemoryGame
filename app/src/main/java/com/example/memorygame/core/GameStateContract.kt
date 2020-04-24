@@ -31,8 +31,10 @@ interface GameStateContract {
         private var _failsCount: Int = 0,
         private var _cardWaitingPair: String = "",
         private var _faceDownCardIds: String = "",
+        private var _cardsPaired: Boolean = false,
         val cardsList: List<GameAttributes.SingleCard>
     ) {
+        val firstMove: Boolean get() = _score == 0 && _failsCount == 0 && _cardWaitingPair.isBlank()
         val score get() = _score
         val failsCount get() = _failsCount
         val pairingCardId get() = _cardWaitingPair
@@ -44,6 +46,8 @@ interface GameStateContract {
 
         private val gameFailed
             get() = difficultyLevel.errorsLimit in 1.._failsCount
+
+        val cardsPaired get() = _cardsPaired
 
         val gameResult
             get() = if (gameSuccess) GameResult.SUCCESS else if (gameFailed) GameResult.FAILED else GameResult.PLAYING
@@ -63,6 +67,10 @@ interface GameStateContract {
         fun changeCardIdsToFaceDown(faceDownCardIds: String) {
             _faceDownCardIds = faceDownCardIds
         }
+
+        fun togglePaired(paired: Boolean) {
+            _cardsPaired = paired
+        }
     }
 
     class ViewModel : androidx.lifecycle.ViewModel() {
@@ -79,6 +87,7 @@ interface GameStateContract {
                 0,
                 "",
                 "",
+                false,
                 gameController.generateNewDeck(difficultyLevel.rowCount)
             )
         }
@@ -97,7 +106,10 @@ interface GameStateContract {
                             }
                             it
                         }.toList()
-                    )
+                    ).apply {
+                        changeCardIdsToFaceDown("")
+                        togglePaired(false)
+                    }
             } else if (actualState.pairingCardId.isNotBlank()) {
                 val (newCardsList, gainedScore, failsCount) = gameController.checkPairingCards(
                     actualState.cardsList.toMutableList(),
@@ -106,6 +118,7 @@ interface GameStateContract {
                 )
                 val faceDownCardIds =
                     if (failsCount > 0) "${actualState.pairingCardId},$cardUniqueId" else ""
+                val areCardsPaired = gainedScore > 0
 
                 newStateItem =
                     actualState.copy(
@@ -116,6 +129,7 @@ interface GameStateContract {
                         changeCardIdsToFaceDown(faceDownCardIds)
                         computeScore(gainedScore)
                         computeFails(failsCount)
+                        togglePaired(areCardsPaired)
                     }
             }
 

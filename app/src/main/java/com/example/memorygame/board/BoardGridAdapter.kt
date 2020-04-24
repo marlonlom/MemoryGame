@@ -17,8 +17,6 @@
 
 package com.example.memorygame.board
 
-import android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
@@ -32,9 +30,8 @@ import timber.log.Timber
 
 class BoardGridAdapter : RecyclerView.Adapter<BoardGridAdapter.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(
-        ItemBoardCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-    )
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
+        ViewHolder(ItemBoardCardBinding.inflate(LayoutInflater.from(parent.context), parent, false))
 
     override fun getItemCount(): Int = differ.currentList.size
 
@@ -64,7 +61,6 @@ class BoardGridAdapter : RecyclerView.Adapter<BoardGridAdapter.ViewHolder>() {
     class ViewHolder(private val cardBinding: ItemBoardCardBinding) :
         RecyclerView.ViewHolder(cardBinding.root) {
 
-        @SuppressLint("LogNotTimber")
         fun bindCard(
             cardItem: SingleCard,
             onCardFlippedListener: (String) -> Unit
@@ -82,7 +78,7 @@ class BoardGridAdapter : RecyclerView.Adapter<BoardGridAdapter.ViewHolder>() {
                 )
             }
 
-            Log.d("xD", "flipper.currentFlipState: ${cardBinding.flipper.currentFlipState}")
+            Timber.d("flipper.currentFlipState: ${cardBinding.flipper.currentFlipState}")
 
             cardBinding.flipper.setOnFlipListener { _, newCurrentSide ->
                 Timber.d("state: $newCurrentSide, card: ${cardItem.card.name}, flipped before? ${cardItem.flipped}")
