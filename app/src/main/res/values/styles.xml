@@ -1,12 +1,21 @@
-<resources>
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright 2020 aliceresponde. All rights reserved.
+  ~
+  ~  Licensed under the Apache License, Version 2.0 (the "License");
+  ~  you may not use this file except in compliance with the License.
+  ~  You may obtain a copy of the License at
+  ~
+  ~       http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~  Unless required by applicable law or agreed to in writing, software
+  ~  distributed under the License is distributed on an "AS IS" BASIS,
+  ~  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~  See the License for the specific language governing permissions and
+  ~  limitations under the License.
+  ~
+  -->
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
+<resources>
 
     <style name="Lobby.Button" parent="Widget.AppCompat.Button">
         <item name="android:background">@drawable/lobby_btn_background</item>
@@ -17,4 +26,86 @@
         <item name="android:paddingLeft">10dp</item>
         <item name="android:paddingRight">10dp</item>
     </style>
+
+    <style name="TextAppearance.MemoryGame.Lobby.Headline" parent="@style/TextAppearance.AppCompat.Headline">
+        <item name="android:textColor">@color/brand_cocoa_brown</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">40sp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="Widget.MemoryGame.Lobby.Button" parent="Widget.AppCompat.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:layout_marginBottom">64dp</item>
+        <item name="android:textColor">@color/brand_white</item>
+        <item name="android:background">@drawable/bg_button_lobby</item>
+    </style>
+
+    <style name="Widget.MemoryGame.Lobby.Difficulty.Button" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/bg_button_difficulty</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/brand_white</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:minWidth">160dp</item>
+    </style>
+
+    <style name="Widget.MemoryGame.Lobby.Difficulty.BottomSheet" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="Widget.MemoryGame.SingleCard" parent="">
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">120dp</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:scaleType">centerInside</item>
+    </style>
+
+    <style name="Widget.MemoryGame.Board.TextLabel" parent="">
+        <item name="android:layout_width">120dp</item>
+        <item name="android:layout_height">28dp</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Widget.MemoryGame.Board.TextLabel.Score" parent="@style/Widget.MemoryGame.Board.TextLabel">
+        <item name="android:textColor">@color/brand_puerto_rico</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Widget.MemoryGame.Board.TextLabel.Fails" parent="@style/Widget.MemoryGame.Board.TextLabel">
+        <item name="android:textColor">@color/brand_carmine</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Widget.MemoryGame.Board.TextLevelValue" parent="@style/Widget.MemoryGame.Board.TextLabel">
+        <item name="android:layout_height">36dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/brand_cocoa_brown</item>
+    </style>
+
+    <style name="Widget.MemoryGame.Button.Borderless.Success" parent="Widget.AppCompat.Button.Borderless.Colored">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:background">@drawable/bg_button_success</item>
+        <item name="android:textColor">@color/brand_white</item>
+    </style>
+
+    <style name="Widget.MemoryGame.Button.Borderless.Failed" parent="@style/Widget.MemoryGame.Button.Borderless.Success">
+        <item name="android:minWidth">100dp</item>
+        <item name="android:background">@drawable/bg_button_retry</item>
+    </style>
+
 </resources>
